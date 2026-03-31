@@ -25,3 +25,9 @@ def build_datasets(dataset_path: str, img_size=(224, 224), batch_size=32, seed=4
     )
 
     return train_ds, vals_ds
+
+def map_class_names(train_ds, label_df):
+    class_names = []
+    for i in train_ds.class_names:
+        class_names.append(label_df['Name'][int(i)])
+    return class_names
